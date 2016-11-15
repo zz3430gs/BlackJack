@@ -4,14 +4,15 @@ public class Rules{
 
 
 
-    public void overTwentyOne(card cardA, card cardB){
+    public boolean overTwentyOne(Card cardA, Card cardB){
 
-        if (cardA + cardB > 21){
-
+        if (cardA.value + cardB.value > 21){
+            return true;
         }
+        else return false;
     }
-    public void equalsTwentyOne(card cardA, card cardB){
-        if (cardA + cardB == 21){
+    public void equalsTwentyOne(Card cardA, Card cardB){
+        if (cardA.value + cardB.value == 21){
 
         }
     }
