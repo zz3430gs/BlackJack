@@ -11,11 +11,11 @@ public class Card {
     String suit;
     String face;
     Integer value;
-    String cat ="Cat";
-    String anotherCat ="A";
+
     public Card(String suit, String face, Integer value){
         this.suit = suit;
         this.face = face;
         this.value =value;
+
 
 }}

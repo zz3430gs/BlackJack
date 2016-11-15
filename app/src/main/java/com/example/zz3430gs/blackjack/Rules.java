@@ -11,10 +11,11 @@ public class Rules{
         }
         else return false;
     }
-    public void equalsTwentyOne(Card cardA, Card cardB){
+    public boolean equalsTwentyOne(Card cardA, Card cardB){
         if (cardA.value + cardB.value == 21){
-
+            return true;
         }
+        else return false;
     }
 
 
