@@ -1,21 +1,31 @@
 package com.example.zz3430gs.blackjack;
 
+import java.util.Dictionary;
+import java.util.Enumeration;
+
 /**
  * Created by xf0484rc on 11/15/16.
  */
 public class Card {
-    String[] suits = {"Diamonds","Clubs","Spade", "Hearts"};
-    String[] faces = {"King", "Queen", "Ace", "Jack"};
-    Integer[] values = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
+    private int rank, suit;
 
-    String suit;
-    String face;
-    Integer value;
+    private static String[] suits = {"hearts", "spades", "diamonds", "clubs"};
+    private static String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
 
-    public Card(String suit, String face, Integer value){
+
+    Card(int suit, int rank){
         this.suit = suit;
-        this.face = face;
-        this.value =value;
+        this.rank = rank;
+    }
+    @Override
+    public String toString(){
+        return ranks[rank] + " of " + suits[suit];
+    }
 
-
-}}
+    public int getRank(){
+        return rank;
+    }
+    public int getSuit(){
+        return suit;
+    }
+}
