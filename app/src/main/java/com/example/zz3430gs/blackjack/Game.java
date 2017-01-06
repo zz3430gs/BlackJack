@@ -13,15 +13,19 @@ public class Game implements Parcelable {
 
     public String player1key;
     public String player2key;
+    public ArrayList player1hand;
+    public ArrayList player2hand;
     public int player1score;
     public int player2score;
 
     Game() {}
 
 
-    public Game(String player1key, String player2key, ArrayList<String>Hand, int player1score, int player2score){
+    public Game(String player1key, String player2key, ArrayList player1hand, ArrayList player2hand, int player1score, int player2score){
         this.player1key = player1key;
         this.player2key = player2key;
+        this.player1hand = player1hand;
+        this.player2hand =  player2hand;
         this.player1score = player1score;
         this.player2score = player2score;
     }
@@ -63,8 +67,15 @@ public class Game implements Parcelable {
     public void writeToParcel(Parcel parcel, int i){
         parcel.writeString(player1key);
         parcel.writeString(player2key);
+        parcel.writeList(player1hand);
+        parcel.writeList(player2hand);
         parcel.writeInt(player1score);
         parcel.writeInt(player2score);
     }
+
+
+
+
+
 
 }

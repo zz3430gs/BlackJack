@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class Player implements Parcelable{
     public boolean available;
-    public ArrayList<String>hand; //the cards that are in the hands
+    public ArrayList hand; //the cards that are in the hands
 //
 //    @Exclude
     String state;
@@ -61,5 +61,49 @@ public class Player implements Parcelable{
         parcel.writeByte((byte) (available ? 1 : 0));
         parcel.writeList(hand);
         parcel.writeString(state);
+    }
+
+    public class Hand{
+
+        private ArrayList hand;
+
+        public Hand(){
+            hand = new ArrayList();
+        }
+
+        public void addCard(Card c) {
+            if (c == null) {
+                hand.add(c);
+            }
+        }
+        public int getScore(Card c){
+            int result = 0;
+            int ace = 0;
+
+            if (hand.size() >= 0){
+                for (int i = 0; i < hand.size(); i++){
+                    int cardValue;
+                    Card card = (Card)hand.get(i);
+                    cardValue = card.getRank();
+                    if (cardValue == 1){
+                        cardValue = 0;
+                        ace += 1;
+                    }
+                    result = result + cardValue;
+                }
+                if (ace !=0){
+                    for (int j=0; j<ace; j++){
+                        if (result+11<=21){
+                            result+=11;
+                        }
+                        else {
+                            result+=1;
+                        }
+                    }
+                }
+            }
+            return result;
+        }
+
     }
 }
